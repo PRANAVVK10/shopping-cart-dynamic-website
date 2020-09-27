@@ -8,7 +8,8 @@ var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 
 var app = express();
-var fileUpload= require('express-fileUpload')
+var fileUpload= require('express-fileUpload');
+var db = require('./config/connection');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -19,6 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
+db.connect((err)=>{
+  if (err) console.log("connection failed"+err);
+  else console.log("database connected to port 27017");
+})
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 
