@@ -10,7 +10,7 @@ var adminRouter = require('./routes/admin');
 var app = express();
 var fileUpload= require('express-fileUpload');
 var db = require('./config/connection');
-var session=require('express-session')
+var session= require('express-session')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

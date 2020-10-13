@@ -5,7 +5,9 @@
             <h1>Login</h1>
             <div class="form-group">
             <form action="/login" method="POST">
-            
+            {{#if logginErr}}
+                <p>{{logginErr}}</p>
+            {{/if}}
         
         <div class="form-group">
             <label for="">Email <br></label>
