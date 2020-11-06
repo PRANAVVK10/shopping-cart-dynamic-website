@@ -3,14 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var hbs= require('express-handlebars');
+
 var userRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
-
+var hbs=require('express-handlebars')
 var app = express();
-var fileUpload= require('express-fileUpload');
-var db = require('./config/connection');
-var session= require('express-session')
+var fileUpload=require('express-fileupload')
+var db=require('./config/connection')
+var session=require('express-session')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -21,10 +21,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
-app.use(session({secret:"key",cookie:{maxAge:300000}}));
+app.use(session({secret:'key',cookie:{maxAge:600000}}))
 db.connect((err)=>{
-  if (err) console.log("connection failed"+err);
-  else console.log("database connected to port 27017");
+  if(err)
+  console.log("connection eroor"+err)
+  else
+  console.log("database connected in 27017 port");
 })
 app.use('/', userRouter);
 app.use('/admin', adminRouter);

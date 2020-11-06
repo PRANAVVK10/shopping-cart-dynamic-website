@@ -1,0 +1,28 @@
+
+<div style="background-color:white; color:black">
+    <div class="login-section">
+        <div class="inner-section" style="margin-left: 50px;margin-top:20px;">
+            <h1>Login</h1>
+            <div class="form-group">
+            <form action="/login" method="POST">
+            {{#if loginerror}}
+            <p>{{loginerror}}</p>
+            {{/if}}
+        <div class="form-group">
+            <label for="">Email <br></label>
+            <input type="email" name="email" class="form-control" placeholder="Enter Email" style="width: 40%;">
+
+        </div>
+        <div class="form-group">
+            <label for="">Password<br></label>
+            <input type="text" name="password" class="form-control" placeholder="Enter A Password" style="width: 40%;">
+        </div>
+        <div class="btn">
+            <a href=""><button class="btn btn-success">Login</button></a>
+        </div>
+    </form>
+        </div>
+        <h4 class="switch">Dont have an account?<a href="/signup"> Signup</a></h4>
+    </div>
+    
+</div>
